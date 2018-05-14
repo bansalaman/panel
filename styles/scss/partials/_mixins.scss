@@ -1,0 +1,114 @@
+@mixin width($width) {
+    width: 10 * $width;
+}
+
+@mixin padding($values...) {    
+@each $var in $values {
+    padding: #{$var};
+}
+}
+
+@mixin margin($values...) {    
+@each $var in $values {
+    margin: #{$var};
+}
+}
+
+@mixin top($top) {
+top: 10 * $top;
+}
+@mixin left($left) {
+left: 10 * $left;
+}
+
+@mixin border-radius($radius) {
+border-radius: $radius;
+-webkit-border-radius: $radius;
+-moz-border-radius: $radius;
+}
+
+@mixin shadow-detail($borderSize , $borderColor , $margin , $width) {
+border: $borderSize solid $borderColor;
+margin: $margin auto $margin auto;
+width: $width;
+}
+@mixin padding-top-bottom($num,$op){
+    @if $op=='add'{
+        padding-top: $padding-pixel + $num;
+        padding-bottom: $padding-pixel + $num;
+    }
+    @else if $op=='sub'{
+        padding-top: $padding-pixel - $num;
+        padding-bottom: $padding-pixel - $num;
+    }
+    @else if $op=='mul'{
+        padding-top: $padding-pixel * $num;
+        padding-bottom: $padding-pixel * $num;
+    }
+    @else {
+        padding-top: $padding-pixel / $num;
+        padding-bottom: $padding-pixel / $num;
+    }
+}
+
+@mixin panel-margin($num,$op){
+    @if $op=='add'{
+        margin: $margin-pixel + $num;
+    }
+    @else if $op=='sub'{
+        margin: $margin-pixel - $num;
+    }
+    @else if $op=='mul'{
+        margin: $margin-pixel * $num;
+    }
+    @else {
+        margin: $margin-pixel / $num;
+    }
+}
+
+
+@mixin border-radius-input($num) {
+    border-radius: $base-radius - $num;
+}
+
+@mixin content-font-size($num, $op) {
+    @if $op='add' {
+        font-size: $base-font-size + $num;
+    }
+    @else {
+        font-size: $base-font-size - $num;
+    }
+}
+
+@mixin font() {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: bolder;
+}
+
+@mixin main-content-height($num) {
+    height: $base-height + $num;
+}
+
+@mixin main-content-margin($num) {
+    margin: $base-margin / $num;
+}
+
+@mixin margin-top-bottom-add($num) {
+    margin-top: $base-margin + $num;
+    margin-bottom: $base-margin + $num;
+}
+
+@mixin margin-top-bottom-sub($num) {
+    margin-top: $base-margin - $num;
+    margin-bottom: $base-margin - $num;
+}
+
+@mixin margin-top-bottom-mul($num) {
+    margin-top: $base-margin * $num;
+    margin-bottom: $base-margin * $num;
+}
+
+@mixin margin-top-bottom-div($num) {
+    margin-top: $base-margin / $num;
+    margin-bottom: $base-margin / $num;
+}

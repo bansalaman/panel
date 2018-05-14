@@ -1,0 +1,66 @@
+{
+  "DatewiseSlots": [
+    {
+      "id": 1,
+      "Date": "17-04-2018",
+      "listOfSlots": [
+        {
+          "slotId": 6,
+          "startTime": "9:00 AM",
+          "endTime": "9:30 AM",
+          "empty": "no",
+          "emailAddress": "deeratho@publicisgroupe.net",
+          "candidateInfo": "yes"
+        },
+        {
+          "slotId": 7,
+          "startTime": "11:00 AM",
+          "endTime": "11:30 AM",
+          "empty": "no",
+          "emailAddress": "deeratho@publicisgroupe.net",
+          "candidateInfo": "no"
+        },
+        {
+          "slotId": 8,
+          "startTime": "09:00 AM",
+          "endTime": "09:30 AM",
+          "empty": "yes",
+          "emailAddress": "",
+          "candidateInfo": "no"
+        },
+        {
+          "slotId": 8,
+          "startTime": "09:00 AM",
+          "endTime": "09:30 AM",
+          "empty": "yes",
+          "emailAddress": "",
+          "candidateInfo": "no"
+        },
+        {
+          "slotId": 8,
+          "startTime": "09:00 AM",
+          "endTime": "09:30 AM",
+          "empty": "yes",
+          "emailAddress": "",
+          "candidateInfo": "no"
+        },
+        {
+          "slotId": 8,
+          "startTime": "01:00 AM",
+          "endTime": "01:30 AM",
+          "empty": "yes",
+          "emailAddress": "",
+          "candidateInfo": "no"
+        },
+        {
+          "slotId": 8,
+          "startTime": "02:00 AM",
+          "endTime": "03:30 AM",
+          "empty": "yes",
+          "emailAddress": "",
+          "candidateInfo": "no"
+        }
+      ]
+    }
+  ]
+}

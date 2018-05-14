@@ -1,0 +1,162 @@
+
+#cal {
+	border: $border solid $border-color;
+	box-shadow: $box $box-shadow-color;
+	margin: $margin + 35px auto;
+	font: 13px/1.5 "Helvetica Neue", Helvatica, Arial, san-serif;
+	display: table;
+	.header {
+		cursor: default;
+		background: $background-header;
+		height: $height - 16px;
+		position: relative;
+		font-weight: bold;
+		text-transform: uppercase;
+		span {
+			display: inline-block;
+			line-height: $height - 16px;
+		}
+		.hook {
+			width: $width - 41px;
+			height: $height - 22px;
+			position: absolute;
+			bottom: $base-margin * 6;
+			border-radius: $border-radius;
+			-moz-border-radius: $border-radius;
+			-webkit-border-radius: $border-radius;
+			background: $background-hook;
+			box-shadow: $zero $box - 3px $box $box-shadow-color;
+			-moz-box-shadow: $zero $box - 3px $box $box-shadow-color;
+			-webkit-box-shadow: $zero $box - 3px $box $box-shadow-color;
+		}
+		.button {
+			width: $border-radius + 6px ;
+			text-align: center;
+			position: absolute;
+			&:hover {
+				background: -moz-linear-gradient(top, $background-color-from, $background-color-to);
+				background: -ms-gradient(linear, left top, left bottom, from($background-color-from), to($background-color-to));
+				background: -webkit-gradient(linear, left top, left bottom, from($background-color-from), to($background-color-to));
+			}
+		}
+		.left.button {
+			left: $zero;
+		}
+		.right.button {
+			right: $zero;
+			top: $zero;
+		}
+		.month-year {
+			letter-spacing: $border;
+			width: $base-width * 10;
+			text-align: center;
+		}
+	}
+	table {
+		background: $background-color;
+		border-collapse: collapse;
+		margin-bottom: $zero;
+	}
+	td {
+		color: $border-color;
+		width: $width - 20px;
+		height: $height - 20px;
+		line-height: $height - 20px;
+		text-align: center;
+		border: $border solid $td-background-color;
+		cursor: default;
+	}
+	#days {
+		td {
+			height: $height - 24px;
+			line-height: $height - 24px;
+			text-transform: uppercase;
+			font-size: $font * 9;
+			font-weight: bold;
+			&:not(:last-child) {
+				border-right: $border solid $background-color;
+			}
+		}
+	}
+	#cal-frame {
+		td.today {
+			background: $td-background-color;
+			color: $td-color;
+		}
+		td {
+			&:not(.nil) {
+				&:hover {
+					color: $background-color;
+					text-shadow: $text-shadow $zero $box - 3px;
+					background: $background-hover;
+					background: -moz-linear-gradient(top, $background-color-from, $background-color-to);
+					background: -ms-gradient(linear, left top, left bottom, from($background-color-from), to($background-color-to));
+					background: -webkit-gradient(linear, left top, left bottom, from($background-color-from), to($background-color-to));
+				}
+			}
+			span {
+				font-size: $font * 8;
+				position: relative;
+				&:first-child {
+					bottom: $base-radius;
+				}
+				&:last-child {
+					top: $base-radius;
+				}
+			}
+		}
+		table.curr {
+			float: left;
+		}
+		table.temp {
+			position: absolute;
+		}
+	}
+}
+.right.hook {
+	right: $hook;
+}
+.left.hook {
+	left: $hook;
+}
+h2{
+    font-size:$font-size + 5px;
+}
+h3{
+    font-size :$font-size;
+}
+.header-main-content{
+    font-size :$font-size - 4px;
+    text-align : center;
+    background: $background-header;
+}
+.add-slots-section {
+    margin:$margin + 35px auto; 
+	background: $background-add-slot;
+	.min-time-msg {
+		color : $no-slot-color;
+		display : none;
+	}
+}
+.button-section{
+    justify-content: flex-end;
+}
+.slot-container{
+    background:$background-color;
+}
+.clear-slot{
+    background:transparent;
+}
+.border {
+    border:$border solid $border-color !important; 
+}
+.slot-time{
+    padding-top:$padding - 14px;
+}
+.update-candy-info,.view-candy-info{
+    background:transparent;
+    color:$update-candy-color;
+    text-decoration: underline;
+    white-space: normal !important;
+    outline:none;
+}

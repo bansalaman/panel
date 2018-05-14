@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+    crossorigin="anonymous"></script>
+    <script src="./handlebars-v4.0.11.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="mt-5">
+            <section class="welcome-header d-flex ml-3">
+                <h1 class="welcome-user col-7 p-0">
+                    Welcome
+                    <span class="logged-in-username"> XYZ</span>
+                </h1>
+                <nav class="header-nav d-flex col-5 p-0">
+                    <a href="#" class="view-profile">View Profile</a>
+                    <a href="#" class="logout">Logout</a>
+                </nav>
+            </section>
+            <section class="page-nav-header ml-1 mt-2">
+                <nav>
+                    <a href="#" class="home-link page-nav-layout pl-3">Home</a>
+                    <i class="fa fa-angle-right d-none"></i>
+                    <a href="#" class="dashboard-link page-nav-layout d-none"></a>
+                    <i class="fa fa-angle-right d-none"></i>
+                    <a href="#" class="details-link page-nav-layout d-none"></a>
+                </nav>
+            </section>
+        </header>
+        <section class="container">
+            <div class="row">
+                <nav class="navbar header-nav navigation-section d-flex col pr-0">
+                    <a href="#" class="back-to-planner">Back to Calendar View</a>
+                </nav>
+            </div>
+            <header class="border header-main-content row">
+                <h2 class="col">Select Date to ADD/View Slots</h2>
+            </header>
+            <main class="row">
+                <article class="calendar-section col-md-6 p-0" id="cal"> 
+                    <header class="header"> 
+                        <span class="left button" id="prev"> &lang; </span>  
+                        <span class="month-year" id="label"> June 20&0 </span> 
+                        <span class="right button" id="next"> &rang; </span>        
+                    </header> 
+                    <table id="days" class="table">
+                        <td>s</td> 
+                        <td>m</td> 
+                        <td>t</td> 
+                        <td>w</td> 
+                        <td>th</td> 
+                        <td>f</td> 
+                        <td>sa</td>            
+                    </table> 
+                    <section id="cal-frame">
+                        <table class="curr table"> 
+                            <tbody> 
+                                <tr><td class="nil"></td><td class="nil"></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr> 
+                                <tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td class="today">11</td><td>12</td></tr> 
+                                <tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td></tr> 
+                                <tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td></tr> 
+                                <tr><td>27</td><td>28</td><td>29</td><td>30</td><td class="nil"></td><td class="nil"></td><td class="nil"></td></tr> 
+                            </tbody> 
+                        </table>  
+                    </section> 
+                </article>
+                <article class="add-slots-section col-md-6 border">
+                    <header class="border row">
+                        <h3 class="col">Add Slot</h3>
+                    </header>
+                    <section class="add-slots form-group">
+                        <form action="">
+                            <div class="row">
+                                <label for="start-time" class="col-md-4">Start Time</label>
+                                <input type="time" class="col-md-4 col-sm-5 p-0" name="start-time" id="start-time" value="09:00">
+                            </div>
+                            <div class="row">
+                                <label for="end-time" class="col-md-4">End Time</label>
+                                <input type="time" class="col-md-4 p-0" name="end-time" id="end-time" value="09:30">
+                                <input type="button" class="btn btn-primary col-md-3 ml-2" value="Add" id="Add">
+                            </div>
+                        </form>
+                        <p class="min-time-msg">*Minimum time period is 30 minutes</p>
+                    </section>
+                    <section class="selected-slots">
+                        <header class="row">
+                            <p class="col">Selected Slots<p>
+                        </header>
+                        <section class="slot-container">
+                            <script id="slots-template" type="text/template">
+                                <div class="created-slot-clone row" id="0">
+                                    <span class=" col-4"><p class="slot-time bold">{{startTime}}-{{endTime}}</p></span>
+                                    <span class="col-6 p-0">
+                                        <button type="button" class="btn btn-default update-candy-info" >Update Candidate Information</button>
+                                        <button type="button" class="btn btn-default view-candy-info d-none" >View Candidate Information</button>
+                                    </span>
+                                    <span class="col-2 p-0"><button class="btn clear-slot"><i class="fas fa-times-circle"></i></button></span>
+                                </div>
+                            </script>
+                        </section>
+                    </section>
+                </article>
+            </main>
+            <section class="button-section row d-flex">
+                    <div class="col-md-1 col-6 p-0"><button class="btn btn-primary float-right">RESET</button></div>
+                    <div class="col-md-1 col-6 p-0"><button class="btn btn-primary float-right">SAVE</button></div>
+            </section>
+            <!-- Modal -->
+            <article id="myModal" class="modal fade border" role="dialog">
+                <section class="modal-dialog">
+                    <!-- Modal content-->
+                    <article class="modal-content">
+                        <header class="modal-header border ">  
+                            <h3 class="modal-title text-center ">Upload Candidate Information</h3>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </header>
+                        <main class="modal-body">
+                            <form action="" class="container" id="candidate-details-form">
+                                <section class="row">
+                                        <label for="candidate-name" class="col-md-4"  >Name</label>
+                                        <input type="text" class="col p-0" name="candidate-name" id="candidate-name" value="" required pattern="^[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" title="Enter fullname delimited by spaces">
+                                </section><br>
+                                <section class="row">
+                                        <label for="candidate-email" class="col-md-4"  >Email</label>
+                                        <input type="email" class="col p-0" name="candidate-email" id="candidate-email" value="" required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+                                </section><br>
+                                <section class="row">
+                                        <label for="candidate-ph-number" class="col-md-4" >Phone</label>
+                                        <input type="tel" class="col p-0" name="candidate-ph-number" id="candidate-ph-number" value="" pattern="[1-9]{1}[0-9]{9}" required title="Enter 10 digit Phone Number">
+                                </section>
+                                <footer class="modal-footer">
+                                    <input type="submit" class="btn btn-primary upload-btn" value="Upload">
+                                </footer>
+                            </form>
+                        </main>
+                        
+                    </article>
+                </section>
+            </article>
+            <article id="viewModal" class="modal fade border" role="view">
+                <section class="modal-dialog">
+                    <!-- Modal content-->
+                    <article class="modal-content">
+                        <header class="modal-header border ">  
+                            <h3 class="modal-title text-center ">View Candidate Information</h3>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </header>
+                        <main class="modal-body">
+                            <form action="" class="container">
+                                <section class="row">
+                                        <p class="col-md-4">Name</p>
+                                        <p class="view-c-name"></p>
+                                </section><br>
+                                <section class="row">
+                                    <p class="col-md-4">EMail</p>
+                                    <p class="view-c-email"></p>
+                                </section><br>
+                                <section class="row">
+                                    <p class="col-md-4">Phone</p>
+                                    <p class="view-c-phone"></p>
+                                </section><br>
+                                <section class="row">
+                                    <p class="col-md-4">Codility Scores</p>
+                                    <p class="view-c-codility"></p>
+                                </section>
+
+                            </form>
+                        </main>
+                    </article>
+                </section>
+            </article>
+        </section>
+    </div>
+</body>
+</html>
